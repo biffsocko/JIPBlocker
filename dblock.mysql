@@ -1,0 +1,28 @@
+create database dblock;
+
+use dblock;
+create table dblock_attack(
+ip   varchar(15),
+date datetime
+);
+
+create table dblock_blocked(
+ip   varchar(15),
+date datetime
+);
+
+create table dblock_history(
+ip   varchar(15),
+blocked datetime,
+unblocked datetime
+);
+
+
+CREATE USER 'dbadmin'@'localhost' IDENTIFIED BY 'd4ta123';
+GRANT ALL PRIVILEGES ON dblock.* TO 'dbadmin'@'localhost'
+ 	WITH GRANT OPTION;
+
+CREATE USER 'dbadmin'@'%' IDENTIFIED BY 'd4ta123';
+GRANT ALL PRIVILEGES ON dblock.* TO 'dbadmin'@'%'
+	WITH GRANT OPTION;
+
